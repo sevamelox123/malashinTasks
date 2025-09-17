@@ -1,5 +1,5 @@
-fn ln_taylor(x: f64, epsilon: f64) -> f64 {
-    // Для x > 2 используем свойство: ln(x) = -ln(1/x)
+fn taylor(x: f64, epsilon: f64) -> f64 {
+    //ln(x) = -ln(1/x)
     let (value, sign) = if x > 2.0 {
         (1.0 / x, -1.0)
     } else {
@@ -28,10 +28,9 @@ fn main() {
     let x = 100500.0;
     let epsilon = 1e-6;
     
-    let result = ln_taylor(x, epsilon);
+    let result = taylor(x, epsilon);
     let exact = x.ln();
     
-    println!("ln({}) ≈ {:.6}", x, result);
-    println!("Точное значение: {:.6}", exact);
-    println!("Погрешность: {:.2e}", (result - exact).abs());
+    println!("ln({}) ≈ {:.16}", x, result);
+    println!("{:.16}", exact);
 }
