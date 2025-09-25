@@ -27,10 +27,8 @@ fn taylor(x: f64, epsilon: f64) -> f64 {
     sign * result
 }
 fn tsin(x: f64, epsilon: f64) -> f64 {
-    // Нормализуем угол к диапазону [-π, π] для быстрой сходимости
     let x_normalized = x % (2.0 * PI);
     
-    // Ряд Тейлора для sin(x)
     let mut res = x_normalized;
     let mut term = x_normalized;
     let mut n = 1;
